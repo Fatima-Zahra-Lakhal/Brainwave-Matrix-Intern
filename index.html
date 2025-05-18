@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-wallet"></i> Expense Tracker</h1>
+            <div class="balance-container">
+                <h3>Votre Solde</h3>
+                <p id="balance">0.00 €</p>
+            </div>
+        </header>
+
+        <div class="summary">
+            <div class="income">
+                <h4>Revenus</h4>
+                <p id="income-amount">+0.00 €</p>
+            </div>
+            <div class="expense">
+                <h4>Dépenses</h4>
+                <p id="expense-amount">-0.00 €</p>
+            </div>
+        </div>
+
+        <div class="transaction-form">
+            <h3>Ajouter une transaction</h3>
+            <form id="form">
+                <div class="form-control">
+                    <label for="text">Description</label>
+                    <input type="text" id="text" placeholder="Entrez la description..." required>
+                </div>
+                <div class="form-control">
+                    <label for="amount">Montant</label>
+                    <input type="number" id="amount" placeholder="Entrez le montant..." required>
+                </div>
+                <div class="form-control">
+                    <label for="category">Catégorie</label>
+                    <select id="category" required>
+                        <option value="">-- Sélectionnez --</option>
+                        <option value="food">Nourriture</option>
+                        <option value="transport">Transport</option>
+                        <option value="housing">Logement</option>
+                        <option value="entertainment">Loisirs</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="salary">Salaire</option>
+                        <option value="other">Autre</option>
+                    </select>
+                </div>
+                <div class="form-control">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" required>
+                </div>
+                <button class="btn" type="submit">Ajouter</button>
+            </form>
+        </div>
+
+        <div class="transaction-history">
+            <h3>Historique</h3>
+            <div class="filter-controls">
+                <select id="filter-category">
+                    <option value="all">Toutes catégories</option>
+                    <option value="food">Nourriture</option>
+                    <option value="transport">Transport</option>
+                    <option value="housing">Logement</option>
+                    <option value="entertainment">Loisirs</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="salary">Salaire</option>
+                    <option value="other">Autre</option>
+                </select>
+                <input type="month" id="filter-month">
+            </div>
+            <ul id="transactions"></ul>
+        </div>
+
+        <div class="chart-container">
+            <h3>Répartition des Transactions</h3>
+            <canvas id="chart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
